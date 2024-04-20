@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #212529;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; 
+        }
+        header, footer {
+            background-color: #343a40;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+        }
+        .container {
+            width: 90%; 
+            margin: auto;
+            overflow: hidden;
+            padding: 20px; 
+            flex: 1;
+        }
+        .post {
+            background-color: #fff;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px; 
+            box-shadow: 0 0 10px rgba(0,0,0,0.1); 
+            transition: box-shadow 0.3s ease; 
+        }
+        .post:hover {
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+        .post h2 {
+            margin-top: 0;
+            color: #343a40;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px 0;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3; 
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        a:hover {
+            text-decoration: underline; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Vitajte na blogu!</h1>
+    </header>
+
+    <div class="container">
+        {% for post in posts %}
+            <div class="post">
+                <h2>{{ post[1] }}</h2> <!-- post[1] je predpokladaný titulok príspevku -->
+                <p>{{ post[2] }}</p> <!-- post[2] je predpokladaný obsah príspevku -->
+            </div>
+        {% endfor %}
+        <a href="/pridat"><button>Pridať príspevok</button></a>
+    </div>
+
+    <footer>
+        <p>© 2024 Blog. Všetky práva vyhradené.</p>
+    </footer>
+</body>
+</html>
